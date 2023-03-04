@@ -1,0 +1,20 @@
+<h1>Užduočių sąrašas</h1>
+
+<table>
+    <tr>
+        <th>Užduotys</th>
+    </tr>
+    {% for tasks in task %}
+    <tr>
+
+        <td>{{ tasks.id}} - {{tasks.title}}</td>
+        <td><a href="{% url 'tasks-detail' tasks.id %}">Peržiurėti</a></td>
+        <td><a href="{% url 'task-create' %}">Pridėti</a></td>
+        <td><a href="{% url 'tasks-update' tasks.id %}">Redaguoti</a></td>
+        <td><a href="{% url 'tasks-delete' tasks.id %}">Ištrinti</a></td>
+    </tr>
+    {% empty %}
+    <h3>No items in list</h3>
+    <a href="">Add New Items</a>
+    {% endfor %}
+</table>
