@@ -1,4 +1,18 @@
+{% if request.user.is_authenticated %}
+    <p>{{ request.user }}</p>
+    <a href="{% url 'logout' %}">Atsijungti</a>
+{% else %}
+    <a href="{% url 'login' %}">Prisijungti</a>
+{% endif %}
+<hr>
+
 <h1>Užduočių sąrašas</h1>
+<form action="" method="get">
+    <input type="text" name="search-area">
+    <input type="submit" value="Rasti užduotį">
+
+</form>
+
 
 <table>
     <tr>
@@ -14,7 +28,7 @@
         <td><a href="{% url 'tasks-delete' tasks.id %}">Ištrinti</a></td>
     </tr>
     {% empty %}
-    <h3>No items in list</h3>
-    <a href="">Add New Items</a>
+    <h3>Užduočių sąrašas tuščias</h3>
+    <a href="{% url 'task-create' %}">Pridėti naują užduotį</a>
     {% endfor %}
 </table>
