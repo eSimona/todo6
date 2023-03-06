@@ -1,8 +1,17 @@
-<h1>Įrašyti užduotį</h1>
+{% extends 'todo6/main.html' %}
 
-<form action="" method="post">
+{% block content %}
+
+<div class="header-bar">
+  <a href="{% url 'task' %}">&#8592; Grįžti</a>
+</div>
+
+<div class="card-body">
+  <form action="" method="post">
   {% csrf_token %}
   {{ form.as_p }}
   <input type="submit" value="Išsaugoti">
 </form>
-<a href="{% url 'task' %}">Grįžti atgal</a>
+</div>
+
+{% endblock content %}

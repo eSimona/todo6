@@ -1,7 +1,26 @@
-<h1>Registruotis</h1>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Registruotis dabar">
-    <p>Ar turite paskirą? <a href="{% url 'register' %}">Prisijungti dabar</a></p>
-</form>
+{% extends 'todo6/main.html' %}
+
+{% block content %}
+
+<div class="header-bar">
+    <h1>Registracija</h1>
+</div>
+
+<div class="card-body">
+    <form action="" method="post">
+        {% csrf_token %}
+        <label>{{ form.username.label }}</label>
+        {{ form.username}}
+
+        <label>{{ form.password1.label }}</label>
+        {{ form.password1}}
+
+        <label>{{ form.password2.label }}</label>
+        {{ form.password2}}
+        <br><br>
+        <input class="button" type="submit" value="Registruotis dabar">
+
+        <small><p>Ar turite paskirą? <a href="{% url 'login' %}">Prisijungti dabar</a></p></small>
+    </form>
+</div>
+{% endblock content %}

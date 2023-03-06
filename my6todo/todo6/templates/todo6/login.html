@@ -1,7 +1,17 @@
+{% extends 'todo6/main.html' %}
+
+{% block content %}
+
+<div class="header-bar">
 <h1>Prisijungti</h1>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Prisijungti">
-    <p>Dar neturite paskiros? <a href="{% url 'login' %}">Registruoti naują paskyrą</a></p>
-</form>
+</div>
+<div class="card-body">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="button" type="submit" value="Prisijungti">
+    <small><p>Dar neturite paskiros? <a href="{% url 'register' %}">Registruotis</a></p>
+    </small>
+    </form>
+</div>
+{% endblock content %}
